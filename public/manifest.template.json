@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "TEORIQ",
+  "version": "0.1.0",
+  "description": "Registra automáticamente tus fallos en los tests del permiso B, detecta tus puntos débiles y te dice qué repasar hoy. Todo se guarda en tu navegador.",
+  "minimum_chrome_version": "114",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtTfFccCJizpL0LF0ON1LFMsNbCr8hXGqW2tVVZLsLeKmwzkJpIV2Qd1ZdQ2F94YYl855rJNqOjy19hCC0qvZodAHNek00zftqMebddcsVGGLsZ1Txl2Ep3uP2/D64u6z5vki8/qsBfM3UjiWcPdbHVrDRIdeBKN53ejoCdSEPY2SNJEeaxrjKwZhT6oCex5xRkGtxDVjUvEwNXqxjKCb002Ww8oeye5vYX2CZwrvtvi1LdFeyfgY4k3OnqqqoaKlgC66JoKaei/BFoa3VMQ1mAis0CEsf4b9jxKzlxjUAUmxmByJwso+NnoBuBRfh///mhwBHjasXOS1664ULvclsQIDAQAB",
+  "action": { "default_title": "Abrir TEORIQ" },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "options_page": "options.html",
+  "background": { "service_worker": "background.js", "type": "module" },
+  "permissions": ["storage", "sidePanel"],
+  "content_scripts": [
+    { "matches": ["https://cloud.aeolservice.es/*"], "js": ["content.js"], "run_at": "document_idle" }
+  ],
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "content_security_policy": { "extension_pages": "script-src 'self'; object-src 'self'" }
+}
